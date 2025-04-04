@@ -34,6 +34,13 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Function to check if link should be active
+  const isActiveLink = (path) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path === "/" && location.pathname !== "/") return false;
+    return location.pathname === path;
+  };
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-deep-blue shadow-md py-4"
@@ -62,13 +69,20 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-medium hover-gold ${
-                  scrolled ? "text-white" : "text-white"
-                } ${
-                  location.pathname === link.path ? "text-gold font-semibold" : ""
+                className={`relative font-medium transition-all duration-200 group ${
+                  isActiveLink(link.path)
+                    ? "text-gold font-bold"
+                    : "text-white hover:text-gold"
                 }`}
               >
                 {link.name}
+                <span 
+                  className={`absolute -bottom-2 left-0 w-full h-0.5 bg-gold transform transition-transform duration-200 ${
+                    isActiveLink(link.path)
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
               </Link>
             ))}
           </div>
@@ -82,10 +96,10 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`font-medium px-4 py-3 rounded-md hover:bg-opacity-10 hover:bg-white hover-gold ${
-                    location.pathname === link.path
-                      ? "text-gold font-semibold"
-                      : "text-white"
+                  className={`relative font-medium px-4 py-3 transition-all duration-200 ${
+                    isActiveLink(link.path)
+                      ? "text-gold font-bold border-l-4 border-gold bg-white/5"
+                      : "text-white hover:text-gold hover:bg-white/5 hover:border-l-4 hover:border-gold/50"
                   }`}
                 >
                   {link.name}
@@ -99,4 +113,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
