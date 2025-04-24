@@ -23,7 +23,7 @@ const HeroSection = () => {
       className="relative w-full h-screen overflow-hidden"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: '100% 100%',
+        backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: isMobile ? 'scroll' : 'fixed',
