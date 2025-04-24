@@ -8,23 +8,9 @@ import Attractions from './pages/Attractions';
 import PlaceDetails from './pages/PlaceDetails';
 import TripPlanner from './pages/TripPlanner';
 import Contact from './pages/Contact';
-// import Spinner from './components/Spinner';
+
 
 const App = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   // Simulate loading time (you can remove this in production)
-  //   const timer = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
-
-  // if (isLoading) {
-  //   return <Spinner />;
-  // }
 
   return (
     <Router>
