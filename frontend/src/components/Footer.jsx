@@ -60,15 +60,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <FaMapMarkerAlt className="mt-1 mr-3 text-amber-400" />
-                <span className="text-gray-300">123 Tourism Road, Kanpur, Uttar Pradesh, India</span>
+                <span className="text-gray-300">Kanpur, Uttar Pradesh, India</span>
               </li>
               <li className="flex items-center">
                 <FaPhone className="mr-3 text-amber-400" />
-                <span className="text-gray-300">+91 512 123 4567</span>
+                <span className="text-gray-300">+91 XXX XXX XXXX</span>
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="mr-3 text-amber-400" />
-                <span className="text-gray-300">info@kanpurbhraman.com</span>
+                <span className="text-gray-300">kanpurbhraman@gmail.com</span>
               </li>
             </ul>
           </div>
