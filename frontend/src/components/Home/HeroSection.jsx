@@ -1,9 +1,11 @@
 // src/components/Home/HeroSection.jsx
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import heroImageDesktop from '../../assets/Hero3.png';
 import heroImageMobile from '../../assets/MobileHero.png'; // <-- Your mobile-specific image
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
   // Update screen size
@@ -39,7 +41,10 @@ const HeroSection = () => {
           <p className="mt-4 text-lg md:text-xl text-white drop-shadow-lg">
             Discover the soul of Kanpur – places, people & stories
           </p>
-          <button className="mt-6 px-6 py-2 bg-amber-400 text-black rounded-full hover:bg-amber-500 transition">
+          <button
+            className="mt-6 px-6 py-2 bg-amber-400 text-black rounded-full hover:bg-amber-500 transition"
+            onClick={() => navigate('/attractions')}
+          >
             Explore Now
           </button>
         </div>
