@@ -23,7 +23,8 @@ const TripPlanner = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/trip-planner/shortest-route', { places });
+      const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
+      const response = await axios.post(`${apiUrl}/api/trip-planner/shortest-route`, { places });
       setRoute(response.data.route);
       setTotalTime(response.data.totalEstimatedTime);
     } catch (error) {

@@ -20,10 +20,11 @@ const PlaceDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const placeRes = await axios.get(`http://localhost:5000/api/places/${id}`);
+        const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
+        const placeRes = await axios.get(`${apiUrl}/api/places/${id}`);
         setPlace(placeRes.data);
 
-        const reviewsRes = await axios.get(`http://localhost:5000/api/reviews/${id}`);
+        const reviewsRes = await axios.get(`${apiUrl}/api/reviews/${id}`);
         setReviews(reviewsRes.data);
       } catch (err) {
         console.error('Error fetching place details:', err);
@@ -40,12 +41,13 @@ const PlaceDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/reviews', {
+      const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
+      await axios.post(`${apiUrl}/api/reviews`, {
         ...form,
         place_id: id,
       });
       setForm({ name: '', email: '', rating: '', comment: '' });
-      const updatedReviews = await axios.get(`http://localhost:5000/api/reviews/${id}`);
+      const updatedReviews = await axios.get(`${apiUrl}/api/reviews/${id}`);
       setReviews(updatedReviews.data);
     } catch (error) {
       console.error('Error submitting review:', error);

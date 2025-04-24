@@ -12,7 +12,8 @@ function Attractions() {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/places');
+        const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
+        const res = await axios.get(`${apiUrl}/api/places`);
         console.log('API Response:', res.data);
         if (res.data && Array.isArray(res.data)) {
           console.log('Setting places:', res.data);
